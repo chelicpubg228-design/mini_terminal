@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <fstream>
+#include <nlohmann/json.hpp>
+#include <ctime>
 class class_calc {
 public:
 	//функция калькулятора
@@ -195,7 +199,81 @@ public:
 			else if (cin_1s == 3) {
 				break;
 			}
-		}
+		} 
 	}
+
+};
+
+
+
+
+
+class minirast {
+	// Инициализация генератора случайных чисел
+	
+
+	// Переменная с случайным числом от 1 до 3
+	int rand = std::rand() % 3 + 1;
+
+	int hp{0};
+	std::string name;
+
+	void prov() {
+		if (hp == 0) {
+			std::cout << "you lose!";
+		}
+
+	}
+
+
+};
+
+
+class user {
+public:
+	std::string name;
+	std::string Repeat_password;
+	std::string passwd;
+	bool reg = false;
+	void load_json() {
+		std::ifstream user_info("user_info.json");
+		if (user_info.is_open()) {
+			nlohmann::json data = nlohmann::json::parse(user_info);
+			std::string nam, pas;
+			name = data["name"];
+			passwd = data["passwd"];
+			reg = true;
+
+			
+		}
+
+		else if (reg == false) {
+
+			registr();
+		}
+	
+
+	}
+	void registr() {
+		std::cout << "Enter you name: ";
+		std::cin >> name;
+		std::cout << "Enter passwd: ";
+		std::cin >> passwd;
+		nlohmann::json user_json {
+			{"passwd", passwd},
+			{"name", name},
+		
+		
+		};
+		reg = true;
+		std::ofstream outn("user_info.json");
+		outn << user_json;
+		
+		outn.close();
+		std::cin.ignore();
+
+	}
+
+	
 
 };
