@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <fstream>
 #include "class.h"
@@ -136,6 +136,7 @@ std::string i_wsl(std::string syu, std::string sui);
 int kom2;
 std::string start_pr;
 std::string eho_cin;
+std::string sim_g;
 //переменные================================================================================
 
 //это уже основная функция
@@ -143,10 +144,16 @@ int main() {
 	
 
 	std::cout << text_hi << std::endl;
+
 	//сообщение - приветсвие
+	user uuser;
+	uuser.load_json();
+	
+	sim_g = uuser.name + "~$";
+
 	while (true) {
 		//это основной цииикл
-		std::cout << "$ ";
+		std::cout << sim_g;
 		//команда exit для выхода из программы
 		std::getline(std::cin, glav_cin);
 		if (glav_cin == "exit") {
