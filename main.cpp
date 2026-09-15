@@ -9,7 +9,6 @@ Hello! This terminal was created for automation and convenience.
 For help, type help
 There you will find instructions for the terminal.
 Creator's Telegram: @GGCHELIC
-GitHub: 
 Some commands are still under development.
 Good luck!
 
