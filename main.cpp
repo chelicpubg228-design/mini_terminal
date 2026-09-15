@@ -9,6 +9,7 @@ Hello! This terminal was created for automation and convenience.
 For help, type help
 There you will find instructions for the terminal.
 Creator's Telegram: @GGCHELIC
+ 
 Some commands are still under development.
 Good luck!
 
@@ -148,7 +149,7 @@ int main() {
 	user uuser;
 	uuser.load_json();
 	
-	sim_g = uuser.name + "~$";
+	sim_g = uuser.name + "~$ ";
 
 	while (true) {
 		//это основной цииикл
